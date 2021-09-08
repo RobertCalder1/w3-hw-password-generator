@@ -97,48 +97,59 @@ var upperCasedCharacters = [
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//create function to check if string only contains numbers
+function isNumeric(num){
+  return !isNaN(num)
+}
+
+//create function to generate password when button is clicked
 function generatePassword () {
   password.value = "";
 
     var Characters = prompt("Enter password length:\n(min: 8 max: 128)");
 
     if (!Characters) {
-    return;
+      return;
     }
 
+    //check that Password Length is between 8 & 128 characters
     if (Characters < 8) {
-    alert("Password must be 8 or more Characters")
-    return;
+      alert("Password must be 8 or more Characters")
+      return;
     }
   
     if (Characters > 128) {
-    alert("Password must be less than 128 characters")
-    return;
-    }
-    function isNumeric(num){
-      return !isNaN(num)
+      alert("Password must be less than 128 characters")
+      return;
     }
 
-    if (isNumeric("Characters") === false) {
+    //check that Password Length only contains numbers
+    if (isNumeric(Characters) === false) {
       alert("Password length should only be numbers");
       return;
     }
 
+    //create dialogues to confirm parameters of password generated
     var Uppercase = confirm("Do you want uppercase letters?");
     var Lowercase = confirm("Do you want lowercase letters?");
     var Numbers = confirm("Do you want numbers?");
     var SpecialCharacters = confirm("Do you want special characters?");
+
+    //create variable for final array for password generation
     var UseCharacters = [];
+
     //create array depending on selected options
     if (Uppercase === true) UseCharacters = UseCharacters.concat(upperCasedCharacters);
     if (Lowercase === true) UseCharacters = UseCharacters.concat(lowerCasedCharacters);
     if (Numbers === true) UseCharacters = UseCharacters.concat(numericCharacters);
     if (SpecialCharacters === true) UseCharacters = UseCharacters.concat(specialCharacters);
+
     //produce alert if no character options are selected
     if (UseCharacters.length === 0) {
-    alert("You must select at least one character type!")
-    return;
+      alert("You must select at least one character type!")
+      return;
     }
+  //generate password
   for (var i = 0; i <= Characters; i++) {
   var index = Math.floor(Math.random() * UseCharacters.length);
   password.value += UseCharacters[index];
