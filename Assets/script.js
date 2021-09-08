@@ -105,7 +105,7 @@ function generatePassword () {
     if (!Characters) {
     return;
     }
-  
+
     if (Characters < 8) {
     alert("Password must be 8 or more Characters")
     return;
@@ -115,7 +115,15 @@ function generatePassword () {
     alert("Password must be less than 128 characters")
     return;
     }
-  
+    function isNumeric(num){
+      return !isNaN(num)
+    }
+
+    if (isNumeric("Characters") === false) {
+      alert("Password length should only be numbers");
+      return;
+    }
+
     var Uppercase = confirm("Do you want uppercase letters?");
     var Lowercase = confirm("Do you want lowercase letters?");
     var Numbers = confirm("Do you want numbers?");
