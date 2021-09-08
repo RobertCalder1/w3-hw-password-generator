@@ -6,7 +6,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  password = passwordText.value;
 
 }
 // Array of special characters to be included in password
