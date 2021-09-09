@@ -144,14 +144,14 @@ function generatePassword() {
     useCharacters = useCharacters.concat(specialCharacters);
 
   //produce alert if no character options are selected
-  if (UseCharacters.length === 0) {
+  if (useCharacters.length === 0) {
     alert("You must select at least one character type!");
     return;
   }
   //generate password
-  for (var i = 0; i <= Characters; i++) {
-    var index = Math.floor(Math.random() * UseCharacters.length);
-    password.value += UseCharacters[index];
+  for (var i = 0; i <= characters; i++) {
+    var index = Math.floor(Math.random() * useCharacters.length);
+    password.value += useCharacters[index];
     console.log(password.value);
   }
 }
